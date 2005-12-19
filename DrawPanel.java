@@ -1,5 +1,5 @@
 /*
- * Created on 7 Δεκ 2004 
+ * $Id: DrawPanel.java,v 1.2 2005/12/19 01:19:50 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -11,17 +11,18 @@ import java.awt.Dimension;
 import java.util.Vector;
 
 /**
- * The program's main window. Extends JFrame to display the window where the
+ * The program's main window.
+ * Extends JFrame to display the window where the
  * trees and snow are drawn. Implements the {@link java.lang.Runnable Runnable}
  * interface so as to create a thread that repeatedly calls the
  * {@link gr.aueb.xmascard.Drawable#draw() draw}method.
- * 
- * @author Giorgos Gousios
+ *
+ * @author Giorgos Gousios, Diomidis Spinellis
  */
 public class DrawPanel extends JFrame implements Runnable {
 
     /* A table that holds the objects to be drawn */
-    private Vector drawObjects = null;
+    private Vector<Drawable> drawObjects = null;
 
     /* The drawing thread */
     private Thread thread;
@@ -39,15 +40,20 @@ public class DrawPanel extends JFrame implements Runnable {
      */
     public static final int HEIGHT = 480;
 
+    /** Serial number of persistant  data.
+     * Required, because JFrame implements serializable.
+     */
+    static final long serialVersionUID = 1L;
+
     /**
-     * This method initializes and displays the window and starts the 
+     * This method initializes and displays the window and starts the
      * animations.
-     *  
+     *
      */
     public DrawPanel() {
         super();
         initialize();
-        drawObjects = new Vector();
+        drawObjects = new Vector<Drawable>();
         start();
     }
 
@@ -72,21 +78,21 @@ public class DrawPanel extends JFrame implements Runnable {
 
     /**
      * Redraws the drawing canvas
-     *  
+     *
      */
     private void paint() {
         canvas.setBackground(new Color(0, 153, 204));
         canvas.repaint();
-        for (int i = 0; i < drawObjects.size(); i++)
-            ((Drawable) drawObjects.get(i)).draw();
+        for (Drawable d : drawObjects)
+            d.draw();
     }
 
     /**
      * Adds a component to be drawn.
-     *  
+     *
      */
     public void addDrawObject(Drawable drawObject) {
-        this.drawObjects.add(drawObject);
+        drawObjects.add(drawObject);
     }
 
     /**
@@ -108,7 +114,7 @@ public class DrawPanel extends JFrame implements Runnable {
 
     /**
      * Start the execution of the drawing thread.
-     *  
+     *
      */
     private void start() {
         if (thread == null) {
@@ -120,7 +126,7 @@ public class DrawPanel extends JFrame implements Runnable {
 
     /**
      * This method initializes canvas
-     * 
+     *
      * @return javax.swing.JPanel
      */
     public JPanel getCanvas() {
