@@ -1,5 +1,5 @@
 /*
- * $Id: Tree.java,v 1.3 2005/12/19 09:37:40 dds Exp $
+ * $Id: Tree.java,v 1.4 2005/12/19 09:48:51 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -16,10 +16,21 @@ import java.awt.Rectangle;
  * body is represented as an isosceles triangle with a height of 80% of the
  * height of the bounding box.
  *
- * @author Giorgos Gousios
+ * @author Giorgos Gousios, Diomidis Spinellis
  *
  */
 public class Tree extends Drawable {
+
+    /** Tree trunk width as % of the bounding rectangle width */
+    private final double trunkWidthFactor = 0.08;
+    /** Tree trunk height as % of the bounding rectangle height */
+    private final double trunkHeightFactor = 0.2;
+    /** Tree body height as % of the bounding rectangle height */
+    private final double bodyHeightFactor = 0.8;
+    /** Trunk's color (RGB) */
+    private final Color brown = new Color(204, 102, 0);
+    /** Body's color (RGB) */
+    private final Color green = new Color(0, 254, 0);
 
     /** The tree's bounding rectangle */
     private Rectangle dimensions;
@@ -62,17 +73,17 @@ public class Tree extends Drawable {
         /* Calculate the trunk rectangle first */
         Rectangle r = new Rectangle();
 
-        r.x = (int) (dimensions.x + dimensions.width / 2 - dimensions.width * 0.04);
-        r.y = (int) (dimensions.y + dimensions.height * 0.8);
-        r.width = (int) (dimensions.width * 0.08);
-        r.height = (int) (dimensions.height * 0.2);
+        r.x = (int) (dimensions.x + (dimensions.width - dimensions.width * trunkWidthFactor) / 2);
+        r.y = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
+        r.width = (int) (dimensions.width * trunkWidthFactor);
+        r.height = (int) (dimensions.height * trunkHeightFactor);
 
         /* Draw it! */
         canvas.draw(r);
 
         /* Fill it with brown color */
         Color c = canvas.getColor();
-        canvas.setColor(new Color(204, 102, 0)); //Brown in hex
+        canvas.setColor(brown);
         canvas.fill(r);
         canvas.setColor(c); //Revert paint color to default
     }
@@ -87,15 +98,15 @@ public class Tree extends Drawable {
         Polygon p = new Polygon();
         p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
         p.addPoint(dimensions.x,
-                (int) (dimensions.y + dimensions.height * 0.8));
+                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
         p.addPoint(dimensions.x + dimensions.width,
-                (int) (dimensions.y + dimensions.height * 0.8));
+                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
         /* Draw the body */
         canvas.draw(p);
 
         /* Fill it with green color */
         Color c = canvas.getColor();
-        canvas.setColor(new Color(0, 254, 0)); //Green in hex
+        canvas.setColor(green);
         canvas.fill(p);
         canvas.setColor(c); //Revert paint color to default
     }
