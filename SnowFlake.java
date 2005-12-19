@@ -1,5 +1,5 @@
 /*
- * $Id: SnowFlake.java,v 1.4 2005/12/19 09:37:40 dds Exp $
+ * $Id: SnowFlake.java,v 1.5 2005/12/19 10:36:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -12,6 +12,7 @@ import java.awt.FontMetrics;
  * character to be displayed is determined by subclasses.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
+ * @opt nodefillcolor white
  */
 public abstract class SnowFlake extends Drawable {
 

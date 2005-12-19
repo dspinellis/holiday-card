@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.5 2005/12/19 09:57:45 dds Exp $
+ * $Id: DrawPanel.java,v 1.6 2005/12/19 10:36:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -20,6 +20,7 @@ import java.util.Vector;
  * {@link gr.aueb.xmascard.Drawable#draw() draw}method.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
+ * @opt nodefillcolor lightblue
  */
 public class DrawPanel extends JFrame implements Runnable {
 
@@ -55,7 +56,7 @@ public class DrawPanel extends JFrame implements Runnable {
         super("Christmas Card");
         drawObjects = new Vector<Drawable>();
         initializeGraphics();
-        startThread();
+        initializeThread();
     }
 
     /** Initialize the main window. */
@@ -91,7 +92,7 @@ public class DrawPanel extends JFrame implements Runnable {
     }
 
     /** Start the execution of the drawing thread. */
-    private void startThread() {
+    private void initializeThread() {
         if (thread == null) {
             thread = new Thread(this);
             thread.setPriority(Thread.MIN_PRIORITY);

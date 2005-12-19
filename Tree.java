@@ -1,5 +1,5 @@
 /*
- * $Id: Tree.java,v 1.4 2005/12/19 09:48:51 dds Exp $
+ * $Id: Tree.java,v 1.5 2005/12/19 10:36:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -17,7 +17,7 @@ import java.awt.Rectangle;
  * height of the bounding box.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
- *
+ * @opt nodefillcolor green
  */
 public class Tree extends Drawable {
 

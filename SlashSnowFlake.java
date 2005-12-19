@@ -1,5 +1,5 @@
 /*
- * $Id: SlashSnowFlake.java,v 1.4 2005/12/19 09:18:18 dds Exp $
+ * $Id: SlashSnowFlake.java,v 1.5 2005/12/19 10:36:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -12,6 +12,7 @@ import java.awt.Rectangle;
  * A class that animates a slash on a canvas.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
+ * @opt nodefillcolor white
  */
 public class SlashSnowFlake extends SnowFlake {
 

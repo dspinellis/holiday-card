@@ -1,5 +1,5 @@
 /*
- * $Id: PointSnowFlake.java,v 1.5 2005/12/19 09:26:40 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.6 2005/12/19 10:36:18 dds Exp $
  */
 
 package gr.aueb.xmascard;
@@ -14,6 +14,7 @@ import java.awt.Rectangle;
  * The character can be e.g. a . or a * or an o.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
+ * @opt nodefillcolor white
  */
 public class PointSnowFlake extends SnowFlake {
 

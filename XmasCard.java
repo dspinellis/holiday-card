@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.7 2005/12/19 10:08:47 dds Exp $
+ * $Id: XmasCard.java,v 1.8 2005/12/19 10:36:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -9,6 +9,11 @@ import java.awt.Rectangle;
  * The Christmas Card program main class.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
+ * @depend - - - gr.aueb.xmascard.DrawPanel
+ * @depend - <instantiate> - gr.aueb.xmascard.MidiPlayer
+ * @depend - - - gr.aueb.xmascard.Tree
+ * @depend - - - gr.aueb.xmascard.PointSnowFlake
+ * @depend - - - gr.aueb.xmascard.SlashSnowFlake
  */
 public class XmasCard {
 
