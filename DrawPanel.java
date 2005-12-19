@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.4 2005/12/19 09:14:06 dds Exp $
+ * $Id: DrawPanel.java,v 1.5 2005/12/19 09:57:45 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -23,6 +23,14 @@ import java.util.Vector;
  */
 public class DrawPanel extends JFrame implements Runnable {
 
+    /** The window's width. */
+    public static final int WIDTH = 800;
+    /** The window's height. */
+    public static final int HEIGHT = 600;
+
+    /** The window's background color. */
+    private static final Color blue = new Color(0, 153, 204);
+
     /* A table that holds the objects to be drawn */
     private Vector<Drawable> drawObjects = null;
 
@@ -32,15 +40,6 @@ public class DrawPanel extends JFrame implements Runnable {
     /* The canvas to draw onto */
     private JPanel canvas = null;
 
-    /**
-     * The window's width
-     */
-    public static final int WIDTH = 640;
-
-    /**
-     * The window's height
-     */
-    public static final int HEIGHT = 480;
 
     /** Serial number of persistant  data.
      * Required, because JFrame implements serializable.
@@ -48,27 +47,25 @@ public class DrawPanel extends JFrame implements Runnable {
     static final long serialVersionUID = 1L;
 
     /**
-     * This method initializes and displays the window and starts the
-     * animations.
+     * Constructor to initialize and display the window and starts the
+     * animation.
      *
      */
     public DrawPanel() {
         super("Christmas Card");
-        initialize();
         drawObjects = new Vector<Drawable>();
-        start();
+        initializeGraphics();
+        startThread();
     }
 
-    /**
-     * This method initializes the main window.
-     */
-    private void initialize() {
+    /** Initialize the main window. */
+    private void initializeGraphics() {
 	// Make our window look nice
         JFrame.setDefaultLookAndFeelDecorated(true);
 
 	// Create our drawing canvas
 	canvas = new JPanel();
-	canvas.setBackground(new java.awt.Color(0, 153, 204));
+	canvas.setBackground(blue);
 	canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setContentPane(canvas);
 
@@ -93,10 +90,16 @@ public class DrawPanel extends JFrame implements Runnable {
         setVisible(true);
     }
 
-    /**
-     * Redraws the drawing canvas
-     *
-     */
+    /** Start the execution of the drawing thread. */
+    private void startThread() {
+        if (thread == null) {
+            thread = new Thread(this);
+            thread.setPriority(Thread.MIN_PRIORITY);
+            thread.start();
+        }
+    }
+
+    /** Redraw the drawing canvas */
     private void paint() {
         canvas.setBackground(new Color(0, 153, 204));
         canvas.repaint();
@@ -106,10 +109,7 @@ public class DrawPanel extends JFrame implements Runnable {
             d.draw();
     }
 
-    /**
-     * Adds a component to be drawn.
-     *
-     */
+    /** Add a component to be drawn. */
     public void addDrawObject(Drawable drawObject) {
         drawObjects.add(drawObject);
     }
@@ -133,19 +133,7 @@ public class DrawPanel extends JFrame implements Runnable {
     }
 
     /**
-     * Start the execution of the drawing thread.
-     *
-     */
-    private void start() {
-        if (thread == null) {
-            thread = new Thread(this);
-            thread.setPriority(Thread.MIN_PRIORITY);
-            thread.start();
-        }
-    }
-
-    /**
-     * This method initializes canvas
+     * Get the canvas's drawing panel
      *
      * @return javax.swing.JPanel
      */
