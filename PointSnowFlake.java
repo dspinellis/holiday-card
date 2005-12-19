@@ -1,6 +1,7 @@
 /*
- * Created on 6 Δεκ 2004
+ * $Id: PointSnowFlake.java,v 1.2 2005/12/19 08:55:55 dds Exp $
  */
+
 package gr.aueb.xmascard;
 
 import java.awt.Color;
@@ -9,14 +10,14 @@ import java.awt.Rectangle;
 
 /**
  * A class that animates a star (*) on a canvas.
- * 
+ *
  * @author Giorgos Gousios
  */
 public class StarSnowFlake extends SnowFlake {
 
     /**
      * Create a snowflake represented by a star.
-     * 
+     *
      * @param canvas
      *            The canvas to draw the object onto
      * @param bounds
