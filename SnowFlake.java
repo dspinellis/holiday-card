@@ -1,5 +1,5 @@
 /*
- * Created on 6 Δεκ 2004
+ * $Id: SnowFlake.java,v 1.2 2005/12/19 01:44:04 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -8,7 +8,7 @@ import java.awt.FontMetrics;
 /**
  * A self-drawable 'snowflake' represented by a character. The move pattern and
  * character to be displayed is determined by subclasses.
- * 
+ *
  * @author Giorgos Gousios
  */
 public abstract class SnowFlake extends Drawable {
@@ -36,13 +36,13 @@ public abstract class SnowFlake extends Drawable {
     public void clear() {
 
         FontMetrics fm = canvas.getFontMetrics();
-        canvas.clearRect(coordX, coordY, fm.charWidth(displayChar), 
+        canvas.clearRect(coordX, coordY, fm.charWidth(displayChar),
                 fm.getHeight());
         canvas.setColor(canvas.getBackground());
-        canvas.fillRect(coordX, coordY, fm.charWidth(displayChar), 
+        canvas.fillRect(coordX, coordY, fm.charWidth(displayChar),
                 fm.getHeight());
     }
 
     public abstract void draw();
-    
+
 }

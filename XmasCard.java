@@ -1,5 +1,5 @@
 /*
- * Created on 12 Δεκ 2004
+ * $Id: XmasCard.java,v 1.2 2005/12/19 01:42:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 
 /**
  * The XmasCard program main class.
- * 
+ *
  * @author Giorgos Gousios
  */
 public class XmasCard {
@@ -25,22 +25,22 @@ public class XmasCard {
                     50 + (int) (Math.random() * 250),
                     30 + (int) (Math.random() * 100),
                     100 + (int) (Math.random() * 100));
-            
-            Tree t = new Tree(treeBox, (Graphics2D) d.getCanvas().getGraphics(), 
+
+            Tree t = new Tree(treeBox, (Graphics2D) d.getCanvas().getGraphics(),
                     d.getCanvas().getBounds());
-            
+
             d.addDrawObject(t);
         }
-        
+
         /* Create 35 snowflakes*/
         for (int i = 0; i < 35; i++) {
             if ((i % 5 == 0))
                 d.addDrawObject(new SlashSnowFlake(
-                        (Graphics2D) d.getCanvas().getGraphics(), 
+                        (Graphics2D) d.getCanvas().getGraphics(),
                         d.getCanvas().getBounds()));
             else
                 d.addDrawObject(new StarSnowFlake(
-                        (Graphics2D) d.getCanvas().getGraphics(), 
+                        (Graphics2D) d.getCanvas().getGraphics(),
                         d.getCanvas().getBounds()));
         }
     }
