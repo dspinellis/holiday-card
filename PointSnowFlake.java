@@ -1,5 +1,5 @@
 /*
- * $Id: PointSnowFlake.java,v 1.4 2005/12/19 09:18:18 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.5 2005/12/19 09:26:40 dds Exp $
  */
 
 package gr.aueb.xmascard;
@@ -17,14 +17,20 @@ import java.awt.Rectangle;
  */
 public class PointSnowFlake extends SnowFlake {
 
+    /** The wieght of the snowflake. */
+    int weight;
+
     /**
      * Create a snowflake represented by a point-like character.
      *
      * @param panel The panel to draw the object onto
+     * @param c The character to draw
+     * @param w The snowflake's weight
      */
-    public PointSnowFlake(JPanel panel) {
+    public PointSnowFlake(JPanel panel, char c, int w) {
 	super(panel);
-        displayChar = '*';
+        displayChar = c;
+	weight = w;
     }
 
     /**
@@ -33,7 +39,7 @@ public class PointSnowFlake extends SnowFlake {
      */
     public void draw() {
 
-        /* Clumpsy animation effort*/
+        // Move the snowflake left and right
         switch (coordY % 3) {
         case 1:
             coordX = coordX - 5;
@@ -45,16 +51,16 @@ public class PointSnowFlake extends SnowFlake {
             break;
         }
 
-        /* Move by 0 to 10 pixels down*/
-        coordY += (int) (Math.random() * 10);
+        // Move down, based on the weight
+        coordY += (int) (Math.random() * weight);
 
-        /* Go back to the top when hitting the bottom*/
+        // Go back to the top when hitting the bottom
         if (coordY >= bounds.width + bounds.y)
             coordY = 0;
 
-        /* Draw the star in white*/
+        // Draw the character in white
         canvas.setColor(new Color(255, 255, 255));
-        canvas.drawString((new Character(displayChar)).toString(), coordX,
-                coordY);
+        canvas.drawString((new Character(displayChar)).toString(),
+	    coordX, coordY);
     }
 }

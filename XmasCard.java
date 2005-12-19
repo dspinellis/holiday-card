@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.4 2005/12/19 09:14:06 dds Exp $
+ * $Id: XmasCard.java,v 1.5 2005/12/19 09:26:40 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -37,10 +37,22 @@ public class XmasCard {
 
         /* Create 350 snowflakes*/
         for (int i = 0; i < 350; i++) {
-            if ((i % 5 == 0))
-                d.addDrawObject(new PointSnowFlake(d.getCanvas()));
-            else
+	    switch (i % 6) {
+	    case 0:
+	    case 1:
+                d.addDrawObject(new PointSnowFlake(d.getCanvas(), '.', 15));
+		break;
+	    case 2:
+                d.addDrawObject(new PointSnowFlake(d.getCanvas(), 'o', 10));
+		break;
+	    case 3:
+                d.addDrawObject(new PointSnowFlake(d.getCanvas(), '*', 5));
+		break;
+	    case 4:
+	    case 5:
                 d.addDrawObject(new SlashSnowFlake(d.getCanvas()));
+		break;
+	    }
 	    try {
 		Thread.sleep(250);
 	    } catch (InterruptedException e) {
