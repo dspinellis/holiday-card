@@ -1,5 +1,5 @@
 /*
- * Created on 6 Δεκ 2004
+ * $Id: Tree.java,v 1.2 2005/12/19 09:30:24 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -15,9 +15,9 @@ import java.awt.Rectangle;
  * a height equal to the 20% of the total height of the bounding box. The main
  * body is represented as an isosceles triangle with a height of 80% of the
  * height of the bounding box.
- * 
+ *
  * @author Giorgos Gousios
- *  
+ *
  */
 public class Tree extends Drawable {
 
@@ -25,7 +25,7 @@ public class Tree extends Drawable {
 
     /**
      * Creates a tree from the specified bounding box
-     * 
+     *
      * @param dimensions
      *            The bounding box dimensions.
      * @param canvas
@@ -59,7 +59,7 @@ public class Tree extends Drawable {
 
     /**
      * Draws the trunk. For details on how the lengths are calculated
-     * 
+     *
      * @see gr.aueb.Tree the class description.
      */
     private void drawTrunk() {
@@ -83,14 +83,14 @@ public class Tree extends Drawable {
 
     /**
      * Draws the body. For details on how the lengths are calculated
-     * 
+     *
      * @see gr.aueb.Tree the class description.
      */
     private void drawBody() {
         /* Create the polygon (triangle) to draw */
         Polygon p = new Polygon();
         p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
-        p.addPoint(dimensions.x, 
+        p.addPoint(dimensions.x,
                 (int) (dimensions.y + dimensions.height * 0.8));
         p.addPoint(dimensions.x + dimensions.width,
                 (int) (dimensions.y + dimensions.height * 0.8));

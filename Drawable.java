@@ -1,5 +1,5 @@
 /*
- * Created on 6 Δεκ 2004
+ * $Id: Drawable.java,v 1.2 2005/12/19 09:32:58 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -8,8 +8,8 @@ import java.awt.Rectangle;
 
 /**
  * An abstract representation of a self-drawable object.
- * 
- * @author Giorgos Gousios
+ *
+ * @author Giorgos Gousios, Diomidis Spinellis
  */
 public abstract class Drawable {
 
@@ -25,7 +25,7 @@ public abstract class Drawable {
 
     /**
      * Draws the object onto the canvas
-     *  
+     *
      */
     public abstract void draw();
 
