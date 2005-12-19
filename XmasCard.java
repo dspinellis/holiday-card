@@ -1,40 +1,52 @@
 /*
- * $Id: XmasCard.java,v 1.6 2005/12/19 09:37:40 dds Exp $
+ * $Id: XmasCard.java,v 1.7 2005/12/19 10:08:47 dds Exp $
  */
 package gr.aueb.xmascard;
 
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 /**
- * The XmasCard program main class.
+ * The Christmas Card program main class.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
  */
 public class XmasCard {
 
+    /** Number of trees */
+    private static final int numTrees = 12;
+    /** Number of snowflakes */
+    private static final int numSnowFlakes = 500;
+    /** Minimum tree width. */
+    private static final int treeWidth = 30;
+    /** Minimum tree height. */
+    private static final int treeHeight = 100;
+    /** Additional variation to tree height and width */
+    private static final int treeWobble = 100;
+    /** Song to play. */
+    private static String musicFile = "jbelrock.mid";
+
     public static void main(String[] args) {
 
-        /* Create a window and the canvas to draw onto*/
+        // Create a window and the canvas to draw onto.
         DrawPanel d = new DrawPanel();
 
-        /* Create 6 randomly-positioned trees*/
-        for (int i = 0; i < 6; i++) {
-
-            Rectangle treeBox = new Rectangle(20 + (int) (Math.random() * 400),
-                    50 + (int) (Math.random() * 250),
-                    30 + (int) (Math.random() * 100),
-                    100 + (int) (Math.random() * 100));
+        // Create randomly-positioned trees.
+        for (int i = 0; i < numTrees; i++) {
+            Rectangle treeBox = new Rectangle(
+		(int)(Math.random() * DrawPanel.WIDTH),
+                (int)(Math.random() * DrawPanel.HEIGHT),
+                treeWidth + (int)(Math.random() * treeWobble),
+                treeHeight + (int)(Math.random() * treeWobble));
 
             Tree t = new Tree(d.getCanvas(), treeBox);
             d.addDrawObject(t);
         }
 
 	// Start playing music
-	MidiPlayer m = new MidiPlayer("jbelrock.mid");
+	MidiPlayer m = new MidiPlayer(musicFile);
 
-        /* Create 350 snowflakes*/
-        for (int i = 0; i < 350; i++) {
+        // Create the snowflakes.
+        for (int i = 0; i < numSnowFlakes; i++) {
 	    switch (i % 6) {
 	    case 0:
 	    case 1:
