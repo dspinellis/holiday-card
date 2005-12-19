@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.5 2005/12/19 09:26:40 dds Exp $
+ * $Id: XmasCard.java,v 1.6 2005/12/19 09:37:40 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -26,9 +26,7 @@ public class XmasCard {
                     30 + (int) (Math.random() * 100),
                     100 + (int) (Math.random() * 100));
 
-            Tree t = new Tree(treeBox, (Graphics2D) d.getCanvas().getGraphics(),
-                    d.getCanvas().getBounds());
-
+            Tree t = new Tree(d.getCanvas(), treeBox);
             d.addDrawObject(t);
         }
 

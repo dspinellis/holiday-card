@@ -1,5 +1,5 @@
 /*
- * $Id: SnowFlake.java,v 1.3 2005/12/19 09:18:18 dds Exp $
+ * $Id: SnowFlake.java,v 1.4 2005/12/19 09:37:40 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -36,8 +36,7 @@ public abstract class SnowFlake extends Drawable {
      * @param panel The panel to draw the object onto
      */
     public SnowFlake(JPanel panel) {
-	bounds = panel.getBounds();
-        canvas = (Graphics2D)panel.getGraphics();
+	super(panel);
         coordX = (int) (bounds.width * Math.random()) + bounds.x;
         coordY = 0;
     }

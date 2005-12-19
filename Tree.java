@@ -1,10 +1,10 @@
 /*
- * $Id: Tree.java,v 1.2 2005/12/19 09:30:24 dds Exp $
+ * $Id: Tree.java,v 1.3 2005/12/19 09:37:40 dds Exp $
  */
 package gr.aueb.xmascard;
 
+import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 
@@ -21,21 +21,17 @@ import java.awt.Rectangle;
  */
 public class Tree extends Drawable {
 
+    /** The tree's bounding rectangle */
     private Rectangle dimensions;
 
     /**
      * Creates a tree from the specified bounding box
      *
-     * @param dimensions
-     *            The bounding box dimensions.
-     * @param canvas
-     *            The canvas to draw onto.
-     * @param bounds
-     *            The canvas's bounds.
+     * @param panel The panel to draw the object onto
+     * @param dimensions The bounding box dimensions.
      */
-    public Tree(Rectangle dimensions, Graphics2D canvas, Rectangle bounds) {
-        this.canvas = canvas;
-        this.bounds = bounds;
+    public Tree(JPanel panel, Rectangle dimensions) {
+	super(panel);
         this.dimensions = dimensions;
     }
 
