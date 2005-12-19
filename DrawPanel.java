@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.2 2005/12/19 01:19:50 dds Exp $
+ * $Id: DrawPanel.java,v 1.3 2005/12/19 01:41:17 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Vector;
 
 /**
@@ -51,7 +53,7 @@ public class DrawPanel extends JFrame implements Runnable {
      *
      */
     public DrawPanel() {
-        super();
+        super("Christmas Card");
         initialize();
         drawObjects = new Vector<Drawable>();
         start();
@@ -61,19 +63,24 @@ public class DrawPanel extends JFrame implements Runnable {
      * This method initializes the main window.
      */
     private void initialize() {
-
-        this.setContentPane(getCanvas());
-        this.setName("XmasCard"); //The component's name
-        this.setDefaultCloseOperation(
+	// Make our window look nice
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        setContentPane(getCanvas());
+        setDefaultCloseOperation(
                 javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        this.setTitle("XmasCard"); //The window title
-        this.setSize(WIDTH, HEIGHT); //The initial size
+        setSize(WIDTH, HEIGHT); //The initial size
 
-        /*
-         * Force the parent window to expand the canvas to all available space
-         */
-        this.pack();
-        this.setVisible(true); //Display the window
+	// Exit when the window is closed
+	addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Force the parent window to expand the canvas to all available space
+        pack();
+	//Display the window
+        setVisible(true);
     }
 
     /**
@@ -137,4 +144,4 @@ public class DrawPanel extends JFrame implements Runnable {
         }
         return canvas;
     }
-}  //  @jve:decl-index=0:visual-constraint="124,23"
+}
