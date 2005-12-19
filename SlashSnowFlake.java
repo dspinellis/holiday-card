@@ -1,5 +1,5 @@
 /*
- * Created on 6 Δεκ 2004
+ * $Id: SlashSnowFlake.java,v 1.2 2005/12/19 09:10:38 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -9,14 +9,14 @@ import java.awt.Rectangle;
 
 /**
  * A class that animates a slash on a canvas.
- * 
+ *
  * @author Giorgos Gousios
  */
 public class SlashSnowFlake extends SnowFlake {
 
     /**
      * Create a snowflake represented by a slash.
-     * 
+     *
      * @param canvas The canvas to draw the object onto
      * @param bounds The canvas's bounds
      */
@@ -39,7 +39,7 @@ public class SlashSnowFlake extends SnowFlake {
 
         /* / on even lines, \ on odd lines */
         displayChar = ((coordY % 2) == 0) ? '/' : '\\';
-       
+
         /* Move by 0 to 10 pixels down*/
         coordY += (int) (Math.random() * 10);
 
