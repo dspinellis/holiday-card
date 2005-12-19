@@ -1,5 +1,5 @@
 /*
- * $Id: SlashSnowFlake.java,v 1.3 2005/12/19 09:14:06 dds Exp $
+ * $Id: SlashSnowFlake.java,v 1.4 2005/12/19 09:18:18 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -18,17 +18,11 @@ public class SlashSnowFlake extends SnowFlake {
     /**
      * Create a snowflake represented by a slash.
      *
-     * @param panel
-     *            The panel to draw the object onto
+     * @param panel The panel to draw the object onto
      */
     public SlashSnowFlake(JPanel panel) {
+	super(panel);
         displayChar = '/';
-
-	bounds = panel.getBounds();
-        canvas = (Graphics2D)panel.getGraphics();
-        /* Choose a random starting point */
-        coordX = (int) (bounds.width * Math.random()) + bounds.x;
-        coordY = 0;
     }
 
     /**

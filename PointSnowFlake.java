@@ -1,5 +1,5 @@
 /*
- * $Id: PointSnowFlake.java,v 1.3 2005/12/19 09:14:06 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.4 2005/12/19 09:18:18 dds Exp $
  */
 
 package gr.aueb.xmascard;
@@ -20,16 +20,11 @@ public class PointSnowFlake extends SnowFlake {
     /**
      * Create a snowflake represented by a point-like character.
      *
-     * @param panel
-     *            The panel to draw the object onto
+     * @param panel The panel to draw the object onto
      */
     public PointSnowFlake(JPanel panel) {
+	super(panel);
         displayChar = '*';
-	bounds = panel.getBounds();
-        canvas = (Graphics2D)panel.getGraphics();
-        coordX = (int) (bounds.width * Math.random()) + bounds.x;
-        coordY = 0;
-
     }
 
     /**
