@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.3 2005/12/19 01:41:17 dds Exp $
+ * $Id: DrawPanel.java,v 1.4 2005/12/19 09:14:06 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -65,10 +65,16 @@ public class DrawPanel extends JFrame implements Runnable {
     private void initialize() {
 	// Make our window look nice
         JFrame.setDefaultLookAndFeelDecorated(true);
-        setContentPane(getCanvas());
+
+	// Create our drawing canvas
+	canvas = new JPanel();
+	canvas.setBackground(new java.awt.Color(0, 153, 204));
+	canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setContentPane(canvas);
+
+	// Handle termination
         setDefaultCloseOperation(
                 javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setSize(WIDTH, HEIGHT); //The initial size
 
 	// Exit when the window is closed
 	addWindowListener(new WindowAdapter() {
@@ -77,8 +83,12 @@ public class DrawPanel extends JFrame implements Runnable {
             }
         });
 
+	// Our size
+        setSize(WIDTH, HEIGHT);
+
         // Force the parent window to expand the canvas to all available space
         pack();
+
 	//Display the window
         setVisible(true);
     }
@@ -90,7 +100,9 @@ public class DrawPanel extends JFrame implements Runnable {
     private void paint() {
         canvas.setBackground(new Color(0, 153, 204));
         canvas.repaint();
-        for (Drawable d : drawObjects)
+	// Iterate over a copy to avoid concurrent modification
+        Vector<Drawable>toPaint = new Vector<Drawable>(drawObjects);
+        for (Drawable d : toPaint)
             d.draw();
     }
 
@@ -109,6 +121,7 @@ public class DrawPanel extends JFrame implements Runnable {
     public void run() {
         Thread me = Thread.currentThread();
 
+	// Allow termination by setting thread to null
         while (thread == me) {
             paint();
             try {
@@ -137,11 +150,6 @@ public class DrawPanel extends JFrame implements Runnable {
      * @return javax.swing.JPanel
      */
     public JPanel getCanvas() {
-        if (canvas == null) {
-            canvas = new JPanel();
-            canvas.setBackground(new java.awt.Color(0, 153, 204));
-            canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        }
         return canvas;
     }
 }

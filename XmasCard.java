@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.3 2005/12/19 02:08:02 dds Exp $
+ * $Id: XmasCard.java,v 1.4 2005/12/19 09:14:06 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -32,16 +32,15 @@ public class XmasCard {
             d.addDrawObject(t);
         }
 
+	// Start playing music
+	MidiPlayer m = new MidiPlayer("jbelrock.mid");
+
         /* Create 350 snowflakes*/
         for (int i = 0; i < 350; i++) {
             if ((i % 5 == 0))
-                d.addDrawObject(new SlashSnowFlake(
-                        (Graphics2D) d.getCanvas().getGraphics(),
-                        d.getCanvas().getBounds()));
+                d.addDrawObject(new PointSnowFlake(d.getCanvas()));
             else
-                d.addDrawObject(new StarSnowFlake(
-                        (Graphics2D) d.getCanvas().getGraphics(),
-                        d.getCanvas().getBounds()));
+                d.addDrawObject(new SlashSnowFlake(d.getCanvas()));
 	    try {
 		Thread.sleep(250);
 	    } catch (InterruptedException e) {

@@ -1,35 +1,35 @@
 /*
- * $Id: PointSnowFlake.java,v 1.2 2005/12/19 08:55:55 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.3 2005/12/19 09:14:06 dds Exp $
  */
 
 package gr.aueb.xmascard;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 /**
- * A class that animates a star (*) on a canvas.
+ * A class that animates a point-like character on a canvas.
+ * The character can be e.g. a . or a * or an o.
  *
- * @author Giorgos Gousios
+ * @author Giorgos Gousios, Diomidis Spinellis
  */
-public class StarSnowFlake extends SnowFlake {
+public class PointSnowFlake extends SnowFlake {
 
     /**
-     * Create a snowflake represented by a star.
+     * Create a snowflake represented by a point-like character.
      *
-     * @param canvas
-     *            The canvas to draw the object onto
-     * @param bounds
-     *            The canvas's bounds
+     * @param panel
+     *            The panel to draw the object onto
      */
-    public StarSnowFlake(Graphics2D canvas, Rectangle bounds) {
-        this.displayChar = '*';
-        this.coordX = (int) (bounds.width * Math.random()) + bounds.x;
-        this.coordY = 0;
+    public PointSnowFlake(JPanel panel) {
+        displayChar = '*';
+	bounds = panel.getBounds();
+        canvas = (Graphics2D)panel.getGraphics();
+        coordX = (int) (bounds.width * Math.random()) + bounds.x;
+        coordY = 0;
 
-        this.canvas = canvas;
-        this.bounds = bounds;
     }
 
     /**

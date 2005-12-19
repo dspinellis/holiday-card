@@ -1,8 +1,9 @@
 /*
- * $Id: SlashSnowFlake.java,v 1.2 2005/12/19 09:10:38 dds Exp $
+ * $Id: SlashSnowFlake.java,v 1.3 2005/12/19 09:14:06 dds Exp $
  */
 package gr.aueb.xmascard;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -10,25 +11,24 @@ import java.awt.Rectangle;
 /**
  * A class that animates a slash on a canvas.
  *
- * @author Giorgos Gousios
+ * @author Giorgos Gousios, Diomidis Spinellis
  */
 public class SlashSnowFlake extends SnowFlake {
 
     /**
      * Create a snowflake represented by a slash.
      *
-     * @param canvas The canvas to draw the object onto
-     * @param bounds The canvas's bounds
+     * @param panel
+     *            The panel to draw the object onto
      */
-    public SlashSnowFlake(Graphics2D canvas, Rectangle bounds) {
-        this.displayChar = '/';
+    public SlashSnowFlake(JPanel panel) {
+        displayChar = '/';
 
+	bounds = panel.getBounds();
+        canvas = (Graphics2D)panel.getGraphics();
         /* Choose a random starting point */
-        this.coordX = (int) (bounds.width * Math.random()) + bounds.x;
-        this.coordY = 0;
-
-        this.canvas = canvas;
-        this.bounds = bounds;
+        coordX = (int) (bounds.width * Math.random()) + bounds.x;
+        coordY = 0;
     }
 
     /**
