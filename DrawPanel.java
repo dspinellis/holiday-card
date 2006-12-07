@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.6 2005/12/19 10:36:18 dds Exp $
+ * $Id: DrawPanel.java,v 1.7 2006/12/07 08:07:10 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -25,9 +25,9 @@ import java.util.Vector;
 public class DrawPanel extends JFrame implements Runnable {
 
     /** The window's width. */
-    public static final int WIDTH = 800;
+    public static final int WIDTH = 1024;
     /** The window's height. */
-    public static final int HEIGHT = 600;
+    public static final int HEIGHT = 768;
 
     /** The window's background color. */
     private static final Color blue = new Color(0, 153, 204);
