@@ -1,5 +1,5 @@
 /*
- * $Id: PointSnowFlake.java,v 1.6 2005/12/19 10:36:18 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.7 2006/12/07 08:08:47 dds Exp $
  */
 
 package gr.aueb.xmascard;
@@ -53,15 +53,9 @@ public class PointSnowFlake extends SnowFlake {
         }
 
         // Move down, based on the weight
-        coordY += (int) (Math.random() * weight);
+        coordY += (int)(Math.random() * weight);
 
-        // Go back to the top when hitting the bottom
-        if (coordY >= bounds.width + bounds.y)
-            coordY = 0;
-
-        // Draw the character in white
-        canvas.setColor(new Color(255, 255, 255));
-        canvas.drawString((new Character(displayChar)).toString(),
-	    coordX, coordY);
+	// Draw it through the superclass
+	super.draw();
     }
 }

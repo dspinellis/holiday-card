@@ -1,8 +1,9 @@
 /*
- * $Id: SnowFlake.java,v 1.5 2005/12/19 10:36:18 dds Exp $
+ * $Id: SnowFlake.java,v 1.6 2006/12/07 08:08:47 dds Exp $
  */
 package gr.aueb.xmascard;
 
+import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Graphics2D;
 import java.awt.FontMetrics;
@@ -15,6 +16,9 @@ import java.awt.FontMetrics;
  * @opt nodefillcolor white
  */
 public abstract class SnowFlake extends Drawable {
+
+    /** The snowflake's background color. */
+    private static final Color white = new Color(255, 255, 255);
 
     /**
      * The 'x' current coordinate of the snowflake.
@@ -56,6 +60,15 @@ public abstract class SnowFlake extends Drawable {
                 fm.getHeight());
     }
 
-    public abstract void draw();
+    /** Draw the snowflake and wrap around. */
+    public void draw() {
+        // Go back to the top when hitting the bottom
+        if (coordY >= bounds.width + bounds.y)
+            coordY = 0;
 
+        // Draw the character in white
+        canvas.setColor(white);
+        canvas.drawString((new Character(displayChar)).toString(),
+	    coordX, coordY);
+    }
 }

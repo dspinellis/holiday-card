@@ -1,5 +1,5 @@
 /*
- * $Id: SlashSnowFlake.java,v 1.5 2005/12/19 10:36:18 dds Exp $
+ * $Id: SlashSnowFlake.java,v 1.6 2006/12/07 08:08:47 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -38,13 +38,8 @@ public class SlashSnowFlake extends SnowFlake {
         /* Move by 0 to 10 pixels down*/
         coordY += (int) (Math.random() * 10);
 
-        /* Go back to the top when hitting the bottom*/
-        if (coordY >= bounds.width + bounds.y)
-            coordY = 0;
-
-        canvas.setColor(new Color(255, 255, 255));
-        canvas.drawString((new Character(displayChar)).toString(), coordX,
-                coordY);
+	// Draw it through the superclass
+	super.draw();
     }
 
 }
