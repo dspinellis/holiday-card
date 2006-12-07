@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.8 2005/12/19 10:36:18 dds Exp $
+ * $Id: XmasCard.java,v 1.9 2006/12/07 08:08:39 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -18,9 +18,9 @@ import java.awt.Rectangle;
 public class XmasCard {
 
     /** Number of trees */
-    private static final int numTrees = 12;
+    private static final int numTrees = 30;
     /** Number of snowflakes */
-    private static final int numSnowFlakes = 500;
+    private static final int numSnowFlakes = 1500;
     /** Minimum tree width. */
     private static final int treeWidth = 30;
     /** Minimum tree height. */
@@ -69,7 +69,7 @@ public class XmasCard {
 		break;
 	    }
 	    try {
-		Thread.sleep(250);
+		Thread.sleep(100);
 	    } catch (InterruptedException e) {
 	    }
         }
