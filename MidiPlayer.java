@@ -1,5 +1,5 @@
 /*
- * $Id: MidiPlayer.java,v 1.1 2005/12/19 08:54:08 dds Exp $
+ * $Id: MidiPlayer.java,v 1.2 2007/12/18 15:18:00 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -9,6 +9,9 @@ import java.io.IOException;
 
 /**
  * Play the specified MIDI file
+ * Note:
+ * For this to work you must ensure that the computer's mixer
+ * is configured to play the software synhtesizer output.
  *
  * @author Diomidis Spinellis
  */
