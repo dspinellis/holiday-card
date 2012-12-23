@@ -1,5 +1,5 @@
 /*
- * $Id: Tree.java,v 1.6 2012/12/23 09:51:55 dds Exp $
+ * $Id: Tree.java,v 1.7 2012/12/23 14:58:41 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -45,17 +45,6 @@ public class Tree extends Drawable {
     public Tree(JPanel panel, Rectangle dimensions) {
     super(panel);
 	this.dimensions = dimensions;
-    }
-
-    /**
-     * Clear the displayed tree by filling its bounding box with the background
-     * color
-     * 
-     * @param g The Graphics object on which we will paint
-     */
-    public void clear(Graphics g) {
-	g.setColor(canvas.getBackground());
-	g.fillRect(dimensions.x, dimensions.y, dimensions.width, dimensions.height);
     }
 
     /**

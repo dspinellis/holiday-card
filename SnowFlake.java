@@ -1,5 +1,5 @@
 /*
- * $Id: SnowFlake.java,v 1.7 2012/12/23 09:51:55 dds Exp $
+ * $Id: SnowFlake.java,v 1.8 2012/12/23 14:58:41 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -44,22 +44,6 @@ public abstract class SnowFlake extends Drawable {
         super(panel);
         coordX = (int) (bounds.width * Math.random()) + bounds.x;
         coordY = 0;
-    }
-
-    /**
-     * Clear the displayed character from the canvas. Gets the width and height
-     * of the displayed character from the font metrics calculator for the
-     * current font.
-     * 
-     * @param g The Graphics object on which we will paint
-     */
-    public void clear(Graphics g) {
-        FontMetrics fm = g.getFontMetrics();
-        g.clearRect(coordX, coordY, fm.charWidth(displayChar),
-                fm.getHeight());
-        g.setColor(canvas.getBackground());
-        g.fillRect(coordX, coordY, fm.charWidth(displayChar),
-                fm.getHeight());
     }
 
     /** 

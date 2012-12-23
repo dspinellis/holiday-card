@@ -1,5 +1,5 @@
 /*
- * $Id: Drawable.java,v 1.4 2012/12/23 09:51:55 dds Exp $
+ * $Id: Drawable.java,v 1.5 2012/12/23 14:58:41 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -42,9 +42,4 @@ public abstract class Drawable {
      *
      */
     public abstract void draw(Graphics g);
-
-    /**
-     * Clears the object's bounding box (and thus the object);
-     */
-    public abstract void clear(Graphics g);
 }
