@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.9 2012/12/23 10:50:24 dds Exp $
+ * $Id: DrawPanel.java,v 1.10 2012/12/23 14:56:20 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -29,8 +29,8 @@ public class DrawPanel extends JFrame implements Runnable {
     /** The window's height. */
     public static final int HEIGHT = 768;
 
-    /** The window's background color. */
-    private static final Color blue = new Color(0, 153, 204);
+    /** The window's background color (blue). */
+    public static final Color backgroundColor = new Color(0, 153, 204);
 
     /* A table that holds the objects to be drawn */
     private Vector<Drawable> drawObjects = null;
@@ -65,7 +65,7 @@ public class DrawPanel extends JFrame implements Runnable {
 
         // Create our drawing canvas
         drawablePanel = new DrawablePanel(this);
-        drawablePanel.setBackground(blue);
+        drawablePanel.setBackground(backgroundColor);
         drawablePanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setContentPane(drawablePanel);
 
@@ -118,10 +118,10 @@ public class DrawPanel extends JFrame implements Runnable {
 
         // Allow termination by setting thread to null
         while (thread == me) {
-            // tell drawablePanel to repaint it's contents
+            // tell drawablePanel to repaint its contents
             drawablePanel.repaint();
             try {
-                thread.sleep(250);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
             }
         }

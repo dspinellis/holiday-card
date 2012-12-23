@@ -1,5 +1,5 @@
 /*
- * $Id: DrawablePanel.java,v 1.2 2012/12/23 10:50:06 dds Exp $
+ * $Id: DrawablePanel.java,v 1.3 2012/12/23 14:56:20 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -35,13 +35,15 @@ public class DrawablePanel extends JPanel {
     }
 
     /**
-     * Override the paintComponent method of JPanel and
-     * perform all the drawings here
+     * Perform all drawing operations
+     * By overriding the JPanel method and initiating all the drawing
+     * from this place we take advantage of JPanel's double-buffering
+     * capability.
      */
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        setBackground(new Color(0, 153, 204));
+        setBackground(DrawPanel.backgroundColor);
 
         // Ask our controller for a copy of items to draw
         Vector<Drawable>toPaint = controller.getDrawables();

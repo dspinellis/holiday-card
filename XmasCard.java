@@ -1,5 +1,5 @@
 /*
- * $Id: XmasCard.java,v 1.9 2006/12/07 08:08:39 dds Exp $
+ * $Id: XmasCard.java,v 1.10 2012/12/23 14:56:20 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -69,6 +69,7 @@ public class XmasCard {
 		break;
 	    }
 	    try {
+		// Allow existing snowflakes to fall a bit, before adding more
 		Thread.sleep(100);
 	    } catch (InterruptedException e) {
 	    }
