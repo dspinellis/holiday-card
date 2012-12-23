@@ -1,9 +1,11 @@
 /*
- * $Id: Drawable.java,v 1.3 2005/12/19 09:37:40 dds Exp $
+ * $Id: Drawable.java,v 1.4 2012/12/23 09:51:55 dds Exp $
  */
 package gr.aueb.xmascard;
 
 import javax.swing.JPanel;
+
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -30,18 +32,19 @@ public abstract class Drawable {
      * @param panel The panel to draw the object onto
      */
     public Drawable(JPanel panel) {
-	bounds = panel.getBounds();
+        bounds = panel.getBounds();
         canvas = (Graphics2D)panel.getGraphics();
     }
+
 
     /**
      * Draws the object onto the canvas
      *
      */
-    public abstract void draw();
+    public abstract void draw(Graphics g);
 
     /**
      * Clears the object's bounding box (and thus the object);
      */
-    public abstract void clear();
+    public abstract void clear(Graphics g);
 }

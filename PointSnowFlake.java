@@ -1,13 +1,11 @@
 /*
- * $Id: PointSnowFlake.java,v 1.7 2006/12/07 08:08:47 dds Exp $
+ * $Id: PointSnowFlake.java,v 1.8 2012/12/23 09:51:55 dds Exp $
  */
 
 package gr.aueb.xmascard;
 
+import java.awt.Graphics;
 import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 /**
  * A class that animates a point-like character on a canvas.
@@ -29,16 +27,18 @@ public class PointSnowFlake extends SnowFlake {
      * @param w The snowflake's weight
      */
     public PointSnowFlake(JPanel panel, char c, int w) {
-	super(panel);
+        super(panel);
         displayChar = c;
-	weight = w;
+        weight = w;
     }
 
     /**
      * Display the star onto the canvas. The star changes its 'x' coordinate,
      * depending on the 'y' coordinate.
+     * 
+     * @param g The Graphics object on which we will paint
      */
-    public void draw() {
+    public void draw(Graphics g) {
 
         // Move the snowflake left and right
         switch (coordY % 3) {
@@ -55,7 +55,7 @@ public class PointSnowFlake extends SnowFlake {
         // Move down, based on the weight
         coordY += (int)(Math.random() * weight);
 
-	// Draw it through the superclass
-	super.draw();
+        // Draw it through the superclass
+        super.draw(g);
     }
 }

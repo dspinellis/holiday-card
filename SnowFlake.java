@@ -1,12 +1,12 @@
 /*
- * $Id: SnowFlake.java,v 1.6 2006/12/07 08:08:47 dds Exp $
+ * $Id: SnowFlake.java,v 1.7 2012/12/23 09:51:55 dds Exp $
  */
 package gr.aueb.xmascard;
 
 import java.awt.Color;
-import javax.swing.JPanel;
-import java.awt.Graphics2D;
 import java.awt.FontMetrics;
+import java.awt.Graphics;
+import javax.swing.JPanel;
 
 /**
  * A self-drawable 'snowflake' represented by a character. The move pattern and
@@ -41,7 +41,7 @@ public abstract class SnowFlake extends Drawable {
      * @param panel The panel to draw the object onto
      */
     public SnowFlake(JPanel panel) {
-	super(panel);
+        super(panel);
         coordX = (int) (bounds.width * Math.random()) + bounds.x;
         coordY = 0;
     }
@@ -50,25 +50,31 @@ public abstract class SnowFlake extends Drawable {
      * Clear the displayed character from the canvas. Gets the width and height
      * of the displayed character from the font metrics calculator for the
      * current font.
+     * 
+     * @param g The Graphics object on which we will paint
      */
-    public void clear() {
-        FontMetrics fm = canvas.getFontMetrics();
-        canvas.clearRect(coordX, coordY, fm.charWidth(displayChar),
+    public void clear(Graphics g) {
+        FontMetrics fm = g.getFontMetrics();
+        g.clearRect(coordX, coordY, fm.charWidth(displayChar),
                 fm.getHeight());
-        canvas.setColor(canvas.getBackground());
-        canvas.fillRect(coordX, coordY, fm.charWidth(displayChar),
+        g.setColor(canvas.getBackground());
+        g.fillRect(coordX, coordY, fm.charWidth(displayChar),
                 fm.getHeight());
     }
 
-    /** Draw the snowflake and wrap around. */
-    public void draw() {
+    /** 
+     * Draw the snowflake and wrap around.
+     *  
+     * @param g The Graphics object on which we will paint
+     */
+    public void draw(Graphics g) {
         // Go back to the top when hitting the bottom
         if (coordY >= bounds.width + bounds.y)
             coordY = 0;
 
         // Draw the character in white
-        canvas.setColor(white);
-        canvas.drawString((new Character(displayChar)).toString(),
-	    coordX, coordY);
+        g.setColor(white);
+        g.drawString((new Character(displayChar)).toString(),
+        coordX, coordY);
     }
 }

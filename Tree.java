@@ -1,12 +1,13 @@
 /*
- * $Id: Tree.java,v 1.5 2005/12/19 10:36:18 dds Exp $
+ * $Id: Tree.java,v 1.6 2012/12/23 09:51:55 dds Exp $
  */
 package gr.aueb.xmascard;
 
-import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import javax.swing.JPanel;
 
 /**
  * A self-drawable tree. Uses a box to specify the tree's bounds (the dimensions
@@ -42,72 +43,77 @@ public class Tree extends Drawable {
      * @param dimensions The bounding box dimensions.
      */
     public Tree(JPanel panel, Rectangle dimensions) {
-	super(panel);
-        this.dimensions = dimensions;
+    super(panel);
+	this.dimensions = dimensions;
     }
 
     /**
      * Clear the displayed tree by filling its bounding box with the background
      * color
+     * 
+     * @param g The Graphics object on which we will paint
      */
-    public void clear() {
-        canvas.setColor(canvas.getBackground());
-        canvas.fillRect(dimensions.x, dimensions.y, dimensions.width,
-                dimensions.height);
+    public void clear(Graphics g) {
+	g.setColor(canvas.getBackground());
+	g.fillRect(dimensions.x, dimensions.y, dimensions.width, dimensions.height);
     }
 
     /**
      * Draws the tree.
+     * 
+     * @param g The Graphics object on which we will paint
      */
-    public void draw() {
-        drawTrunk();
-        drawBody();
+    public void draw(Graphics g) {
+	drawTrunk(g);
+	drawBody(g);
     }
 
     /**
      * Draws the trunk. For details on how the lengths are calculated
      *
+     * @param g The Graphics object on which we will paint
      * @see gr.aueb.Tree the class description.
      */
-    private void drawTrunk() {
-        /* Calculate the trunk rectangle first */
-        Rectangle r = new Rectangle();
+    private void drawTrunk(Graphics g) {
+	/* Calculate the trunk rectangle first */
+	Rectangle r = new Rectangle();
 
-        r.x = (int) (dimensions.x + (dimensions.width - dimensions.width * trunkWidthFactor) / 2);
-        r.y = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
-        r.width = (int) (dimensions.width * trunkWidthFactor);
-        r.height = (int) (dimensions.height * trunkHeightFactor);
+	r.x = (int) (dimensions.x + (dimensions.width - dimensions.width * trunkWidthFactor) / 2);
+	r.y = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
+	r.width = (int) (dimensions.width * trunkWidthFactor);
+	r.height = (int) (dimensions.height * trunkHeightFactor);
 
-        /* Draw it! */
-        canvas.draw(r);
+	/* Draw it! */
+	g.drawRect(r.x, r.y, r.width, r.height);
 
-        /* Fill it with brown color */
-        Color c = canvas.getColor();
-        canvas.setColor(brown);
-        canvas.fill(r);
-        canvas.setColor(c); //Revert paint color to default
+	/* Fill it with brown color */
+	Color c = g.getColor();
+	g.setColor(brown);
+	g.fillRect(r.x, r.y, r.width, r.height);
+	g.setColor(c); //Revert paint color to default
     }
 
     /**
      * Draws the body. For details on how the lengths are calculated
      *
+     * @param g The Graphics object on which we will paint
      * @see gr.aueb.Tree the class description.
      */
-    private void drawBody() {
-        /* Create the polygon (triangle) to draw */
-        Polygon p = new Polygon();
-        p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
-        p.addPoint(dimensions.x,
-                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
-        p.addPoint(dimensions.x + dimensions.width,
-                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
-        /* Draw the body */
-        canvas.draw(p);
+    private void drawBody(Graphics g) {
+	/* Create the polygon (triangle) to draw */
+	Polygon p = new Polygon();
+	p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
+	p.addPoint(dimensions.x,
+		(int) (dimensions.y + dimensions.height * bodyHeightFactor));
+	p.addPoint(dimensions.x + dimensions.width,
+		(int) (dimensions.y + dimensions.height * bodyHeightFactor));
+	/* Draw the body */
+	g.drawPolygon(p);
 
-        /* Fill it with green color */
-        Color c = canvas.getColor();
-        canvas.setColor(green);
-        canvas.fill(p);
-        canvas.setColor(c); //Revert paint color to default
+	/* Fill it with green color */
+	Color c = g.getColor();
+	g.setColor(green);
+	g.fillPolygon(p);
+	g.setColor(c); //Revert paint color to default
     }
 }
