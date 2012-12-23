@@ -2,4 +2,9 @@ package javax.swing;
 /**
  * @opt noattributes
  */
-class JFrame {}
+public class JFrame {}
+
+/**
+ * @opt noattributes
+ */
+public class JPanel {}
