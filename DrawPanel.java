@@ -1,5 +1,5 @@
 /*
- * $Id: DrawPanel.java,v 1.8 2012/12/23 09:51:55 dds Exp $
+ * $Id: DrawPanel.java,v 1.9 2012/12/23 10:50:24 dds Exp $
  */
 package gr.aueb.xmascard;
 
@@ -20,6 +20,7 @@ import javax.swing.JPanel;
  *
  * @author Giorgos Gousios, Diomidis Spinellis
  * @opt nodefillcolor lightblue
+ * @assoc 1 drawablePanel 1 DrawablePanel
  */
 public class DrawPanel extends JFrame implements Runnable {
 
