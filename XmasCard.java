@@ -1,6 +1,3 @@
-/*
- * $Id: XmasCard.java,v 1.10 2012/12/23 14:56:20 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import java.awt.Rectangle;

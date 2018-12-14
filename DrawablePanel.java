@@ -1,6 +1,3 @@
-/*
- * $Id: DrawablePanel.java,v 1.3 2012/12/23 14:56:20 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import java.awt.Color;
@@ -30,7 +27,7 @@ public class DrawablePanel extends JPanel {
      * Constructor to initialize the DrawablePanel with it's controller
      *
      */
-    public DrawablePanel(DrawPanel panel){
+    public DrawablePanel(DrawPanel panel) {
         controller = panel;
     }
 
@@ -46,7 +43,7 @@ public class DrawablePanel extends JPanel {
         setBackground(DrawPanel.backgroundColor);
 
         // Ask our controller for a copy of items to draw
-        Vector<Drawable>toPaint = controller.getDrawables();
+        Vector<Drawable> toPaint = controller.getDrawables();
         for (Drawable d : toPaint)
             d.draw(g);
     }

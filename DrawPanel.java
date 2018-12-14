@@ -1,6 +1,3 @@
-/*
- * $Id: DrawPanel.java,v 1.10 2012/12/23 14:56:20 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import java.awt.Color;
@@ -136,7 +133,4 @@ public class DrawPanel extends JFrame implements Runnable {
     public JPanel getCanvas(){
         return drawablePanel;
     }
-
 }
-
-

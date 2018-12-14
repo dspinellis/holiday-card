@@ -1,6 +1,3 @@
-/*
- * $Id: SnowFlake.java,v 1.8 2012/12/23 14:58:41 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import java.awt.Color;
@@ -46,11 +43,12 @@ public abstract class SnowFlake extends Drawable {
         coordY = 0;
     }
 
-    /** 
+    /**
      * Draw the snowflake and wrap around.
-     *  
+     *
      * @param g The Graphics object on which we will paint
      */
+    @Override
     public void draw(Graphics g) {
         // Go back to the top when hitting the bottom
         if (coordY >= bounds.width + bounds.y)

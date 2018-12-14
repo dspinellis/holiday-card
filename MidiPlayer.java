@@ -1,6 +1,3 @@
-/*
- * $Id: MidiPlayer.java,v 1.2 2007/12/18 15:18:00 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import javax.sound.midi.*;

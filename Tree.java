@@ -1,6 +1,3 @@
-/*
- * $Id: Tree.java,v 1.7 2012/12/23 14:58:41 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import java.awt.Color;
@@ -49,9 +46,10 @@ public class Tree extends Drawable {
 
     /**
      * Draws the tree.
-     * 
+     *
      * @param g The Graphics object on which we will paint
      */
+    @Override
     public void draw(Graphics g) {
 	drawTrunk(g);
 	drawBody(g);
@@ -67,7 +65,8 @@ public class Tree extends Drawable {
 	/* Calculate the trunk rectangle first */
 	Rectangle r = new Rectangle();
 
-	r.x = (int) (dimensions.x + (dimensions.width - dimensions.width * trunkWidthFactor) / 2);
+	r.x = (int) (dimensions.x + (dimensions.width
+                    - dimensions.width * trunkWidthFactor) / 2);
 	r.y = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
 	r.width = (int) (dimensions.width * trunkWidthFactor);
 	r.height = (int) (dimensions.height * trunkHeightFactor);
@@ -103,6 +102,6 @@ public class Tree extends Drawable {
 	Color c = g.getColor();
 	g.setColor(green);
 	g.fillPolygon(p);
-	g.setColor(c); //Revert paint color to default
+	g.setColor(c); // Revert paint color to default
     }
 }

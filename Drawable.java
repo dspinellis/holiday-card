@@ -1,6 +1,3 @@
-/*
- * $Id: Drawable.java,v 1.5 2012/12/23 14:58:41 dds Exp $
- */
 package gr.aueb.xmascard;
 
 import javax.swing.JPanel;
@@ -35,7 +32,6 @@ public abstract class Drawable {
         bounds = panel.getBounds();
         canvas = (Graphics2D)panel.getGraphics();
     }
-
 
     /**
      * Draws the object onto the canvas
