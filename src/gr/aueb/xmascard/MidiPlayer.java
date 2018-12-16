@@ -1,7 +1,7 @@
 package gr.aueb.xmascard;
 
 import javax.sound.midi.*;
-import java.io.File;
+import java.io.InputStream;
 import java.io.IOException;
 
 /**
@@ -23,7 +23,7 @@ public class MidiPlayer {
 
     /** Play the specified file. */
     public void playFile(String file) {
-        File midiFile = new File(file);
+        InputStream midiFile = getClass().getResourceAsStream(file);
         try {
 	    if (sequencer == null)
 		sequencer = MidiSystem.getSequencer();

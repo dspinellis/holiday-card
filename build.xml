@@ -24,7 +24,12 @@
         <compilerarg value="-Xlint"/>
     </javac>
     <jar basedir="${build}/classes" destfile="${build}/XmasCard.jar"
-     manifest="${src}/Manifest"/>
+     includes="**"
+     includesfile="${src}/main/resources/Jingle_Bells_full_Ab.mid"
+     manifest="${src}/Manifest">
+	 <fileset dir="${build}/classes"/>
+	 <fileset dir="${src}/main/resources"/>
+     </jar>
 </target>
 
 <target name="doc" depends="init"
