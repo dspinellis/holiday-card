@@ -1,0 +1,74 @@
+<project name="xmascard" default="compile" basedir=".">
+<description>
+    Christmas card example
+</description>
+
+<!-- set global properties for this build -->
+<property name="src" location="src"/>
+<property name="build" location="build"/>
+<property name="doc" location="doc"/>
+
+<target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+    <mkdir dir="${doc}"/>
+    <mkdir dir="${build}/classes"/>
+</target>
+
+<target name="compile" depends="init"
+    description="compile the source, build library " >
+    <javac srcdir="${src}" destdir="${build}/classes" excludes="**/RCS/*,**/UmlGraph.java"
+     debug="true" debuglevel="lines,vars,source" deprecation="on" >
+        <compilerarg value="-Xlint"/>
+    </javac>
+    <jar basedir="${build}/classes" destfile="${build}/XmasCard.jar"
+     manifest="${src}/Manifest"/>
+</target>
+
+<target name="doc" depends="init"
+    description="generate the documentation" >
+        <javadoc 
+            packagenames="gr.aueb.xmascard"
+            sourcepath="${src}" 
+            destdir="${doc}"
+            nohelp="true" 
+            notree="true" 
+            nodeprecated="true" 
+            nodeprecatedlist="true" 
+            Version="true" 
+            author="true"
+            version="true"
+            windowtitle="Christmas Card documentation"
+            doctitle="Christmas Card documentation"
+            bottom="Copyright &#169; 2005-2013 Athens University of Economics and Business.  All Rights Reserved."
+        >
+        <fileset dir="${src}" includes="*.java" />
+    </javadoc>
+</target>
+
+<target name="privdoc" depends="init"
+    description="generate the internal documentation" >
+        <javadoc 
+            packagenames="gr.aueb.dds.exercise"
+            sourcepath="${src}" 
+            destdir="${privdoc}"
+            nohelp="true" 
+            notree="true" 
+            nodeprecated="true" 
+            nodeprecatedlist="true" 
+            Version="true" 
+            author="true"
+            private="true"
+            version="true"
+            windowtitle="Exercise Internal API Documentation"
+            doctitle="Exercise API"
+            bottom="Copyright &#169; 2003 Athens University of Economics and Business.  All Rights Reserved."
+        >
+        <fileset dir="${src}" excludes="**/RCS/** Manifest" />
+    </javadoc>
+</target>
+
+
+</project>
