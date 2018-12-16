@@ -56,7 +56,7 @@ public abstract class SnowFlake extends Drawable {
 
         // Draw the character in white
         g.setColor(white);
-        g.drawString((new Character(displayChar)).toString(),
+        g.drawString((Character.valueOf(displayChar)).toString(),
         coordX, coordY);
     }
 }
