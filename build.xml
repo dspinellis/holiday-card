@@ -4,7 +4,7 @@
 </description>
 
 <!-- set global properties for this build -->
-<property name="src" location="src/main/java"/>
+<property name="src" location="src"/>
 <property name="build" location="build"/>
 <property name="doc" location="doc"/>
 
@@ -49,7 +49,7 @@
             doctitle="Holiday Card documentation"
             bottom="Copyright &#169; 2005-2023 Athens University of Economics and Business.  All Rights Reserved."
         >
-        <fileset dir="${src}" includes="*.java" />
+	<fileset dir="${src}" includes="**/*.java" />
     </javadoc>
 </target>
 
