@@ -71,7 +71,9 @@
             doctitle="Exercise API"
             bottom="Copyright &#169; 2023 Athens University of Economics and Business.  All Rights Reserved."
         >
-        <fileset dir="${src}" excludes="**/RCS/** Manifest" />
+        <fileset dir="${src}" excludes="Manifest">
+	    <include name="**/*.java" />
+        </fileset>
     </javadoc>
 </target>
 
