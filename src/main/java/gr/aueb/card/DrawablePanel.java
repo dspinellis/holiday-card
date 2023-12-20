@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-package gr.aueb.xmascard;
+package gr.aueb.card;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 
 
 /**
- * The Christmas Card program main class.
+ * The Holiday Card program main class.
  *
  * @author Georgios Zouganelis
  * Draw components from this object to reduce flickering.

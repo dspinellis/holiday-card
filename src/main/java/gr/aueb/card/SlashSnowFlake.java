@@ -14,59 +14,43 @@
  *   limitations under the License.
  */
 
-package gr.aueb.xmascard;
+package gr.aueb.card;
 
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
- * A class that animates a point-like character on a canvas.
- * The character can be e.g. a . or a * or an o.
+ * A class that animates a slash on a canvas.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
  * @opt nodefillcolor white
  */
-public class PointSnowFlake extends SnowFlake {
-
-    /** The wieght of the snowflake. */
-    int weight;
+public class SlashSnowFlake extends SnowFlake {
 
     /**
-     * Create a snowflake represented by a point-like character.
+     * Create a snowflake represented by a slash.
      *
      * @param panel The panel to draw the object onto
-     * @param c The character to draw
-     * @param w The snowflake's weight
      */
-    public PointSnowFlake(JPanel panel, char c, int w) {
+    public SlashSnowFlake(JPanel panel) {
         super(panel);
-        displayChar = c;
-        weight = w;
+        displayChar = '/';
     }
 
     /**
-     * Display the star onto the canvas. The star changes its 'x' coordinate,
-     * depending on the 'y' coordinate.
+     * Display the slash on the drawing canvas. The slash alternates between
+     * forward slash and backslash depending on the current 'y' coordinate.
      *
      * @param g The Graphics object on which we will paint
      */
     @Override
     public void draw(Graphics g) {
 
-        // Move the snowflake left and right
-        switch (coordY % 3) {
-        case 1:
-            coordX = coordX - 5;
-            break;
-        case 2:
-            coordX = coordX + 5;
-            break;
-        default:
-            break;
-        }
+        /* / on even lines, \ on odd lines */
+        displayChar = ((coordY % 2) == 0) ? '/' : '\\';
 
-        // Move down, based on the weight
-        coordY += (int)(Math.random() * weight);
+        /* Move by 0 to 10 pixels down*/
+        coordY += (int) (Math.random() * 10);
 
         // Draw it through the superclass
         super.draw(g);

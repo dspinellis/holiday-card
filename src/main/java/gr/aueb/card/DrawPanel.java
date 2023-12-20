@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-package gr.aueb.xmascard;
+package gr.aueb.card;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  * Extends JFrame to display the window where the
  * trees and snow are drawn. Implements the {@link java.lang.Runnable Runnable}
  * interface so as to create a thread that repeatedly calls the
- * {@link gr.aueb.xmascard.Drawable#draw() draw}method.
+ * {@link gr.aueb.card.Drawable#draw() draw}method.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
  * @opt nodefillcolor lightblue
@@ -65,7 +65,7 @@ public class DrawPanel extends JFrame implements Runnable {
      *
      */
     public DrawPanel() {
-        super("Christmas Card");
+        super("Holiday Card");
         drawObjects = new Vector<Drawable>();
         initializeGraphics();
         initializeThread();

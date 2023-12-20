@@ -1,6 +1,6 @@
-# Java Christmas Card
+# Java Holiday Card
 
-This is a simple Christmas card Java application written as an educational
+This is a simple Holiday card Java application written as an educational
 example to demonstrate the use of diverse Java features.
 
 * Inheritance and dynamic dispatch
@@ -16,5 +16,5 @@ Run `ant`
 
 ## Running
 
-Double-click on the generated `build/XmasCard.jar` or run
-`java -jar build/XmasCard.jar`.
+Double-click on the generated `build/HolidayCard.jar` or run
+`java -jar build/HolidayCard.jar`.

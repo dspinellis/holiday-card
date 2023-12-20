@@ -14,21 +14,21 @@
  *   limitations under the License.
  */
 
-package gr.aueb.xmascard;
+package gr.aueb.card;
 
 import java.awt.Rectangle;
 
 /**
- * The Christmas Card program main class.
+ * The Holiday Card program main class.
  *
  * @author Giorgos Gousios, Diomidis Spinellis
- * @depend - - - gr.aueb.xmascard.DrawPanel
- * @depend - <instantiate> - gr.aueb.xmascard.MidiPlayer
- * @depend - - - gr.aueb.xmascard.Tree
- * @depend - - - gr.aueb.xmascard.PointSnowFlake
- * @depend - - - gr.aueb.xmascard.SlashSnowFlake
+ * @depend - - - gr.aueb.card.DrawPanel
+ * @depend - <instantiate> - gr.aueb.card.MidiPlayer
+ * @depend - - - gr.aueb.card.Tree
+ * @depend - - - gr.aueb.card.PointSnowFlake
+ * @depend - - - gr.aueb.card.SlashSnowFlake
  */
-public class XmasCard {
+public class HolidayCard {
 
     /** Number of trees */
     private static final int numTrees = 30;

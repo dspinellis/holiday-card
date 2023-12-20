@@ -1,10 +1,10 @@
-<project name="xmascard" default="compile" basedir=".">
+<project name="card" default="compile" basedir=".">
 <description>
-    Christmas card example
+    Holiday card example
 </description>
 
 <!-- set global properties for this build -->
-<property name="src" location="src"/>
+<property name="src" location="src/main/java"/>
 <property name="build" location="build"/>
 <property name="doc" location="doc"/>
 
@@ -23,7 +23,7 @@
      debug="true" debuglevel="lines,vars,source" deprecation="on" >
         <compilerarg value="-Xlint"/>
     </javac>
-    <jar basedir="${build}/classes" destfile="${build}/XmasCard.jar"
+    <jar basedir="${build}/classes" destfile="${build}/HolidayCard.jar"
      includes="**"
      includesfile="${src}/main/resources/Jingle_Bells_full_Ab.mid"
      manifest="${src}/Manifest">
@@ -35,7 +35,7 @@
 <target name="doc" depends="init"
     description="generate the documentation" >
         <javadoc 
-            packagenames="gr.aueb.xmascard"
+            packagenames="gr.aueb.card"
             sourcepath="${src}" 
             destdir="${doc}"
             nohelp="true" 
@@ -45,9 +45,9 @@
             Version="true" 
             author="true"
             version="true"
-            windowtitle="Christmas Card documentation"
-            doctitle="Christmas Card documentation"
-            bottom="Copyright &#169; 2005-2013 Athens University of Economics and Business.  All Rights Reserved."
+            windowtitle="Holiday Card documentation"
+            doctitle="Holiday Card documentation"
+            bottom="Copyright &#169; 2005-2023 Athens University of Economics and Business.  All Rights Reserved."
         >
         <fileset dir="${src}" includes="*.java" />
     </javadoc>
@@ -56,7 +56,7 @@
 <target name="privdoc" depends="init"
     description="generate the internal documentation" >
         <javadoc 
-            packagenames="gr.aueb.dds.exercise"
+            packagenames="gr.aueb.dds.card"
             sourcepath="${src}" 
             destdir="${privdoc}"
             nohelp="true" 
@@ -67,9 +67,9 @@
             author="true"
             private="true"
             version="true"
-            windowtitle="Exercise Internal API Documentation"
+            windowtitle="Holiday Card Internal API Documentation"
             doctitle="Exercise API"
-            bottom="Copyright &#169; 2003 Athens University of Economics and Business.  All Rights Reserved."
+            bottom="Copyright &#169; 2023 Athens University of Economics and Business.  All Rights Reserved."
         >
         <fileset dir="${src}" excludes="**/RCS/** Manifest" />
     </javadoc>

@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-package gr.aueb.xmascard;
+package gr.aueb.card;
 
 import javax.swing.JPanel;
 
