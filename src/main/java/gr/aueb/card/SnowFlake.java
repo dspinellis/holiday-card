@@ -67,7 +67,7 @@ public abstract class SnowFlake extends Drawable {
     @Override
     public void draw(Graphics g) {
         // Go back to the top when hitting the bottom
-        if (coordY >= bounds.width + bounds.y)
+        if (coordY >= bounds.height + bounds.y)
             coordY = 0;
 
         // Draw the character in white
