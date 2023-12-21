@@ -31,15 +31,15 @@ import java.awt.Rectangle;
 public class HolidayCard {
 
     /** Number of trees */
-    private static final int numTrees = 30;
+    private static final int NUM_TREES = 30;
     /** Number of snowflakes */
-    private static final int numSnowFlakes = 1500;
+    private static final int NUM_SNOWFLAKES = 1500;
     /** Minimum tree width. */
-    private static final int treeWidth = 30;
+    private static final int TREE_WIDTH = 30;
     /** Minimum tree height. */
-    private static final int treeHeight = 100;
+    private static final int TREE_HEIGHT = 100;
     /** Additional variation to tree height and width */
-    private static final int treeWobble = 100;
+    private static final int TREE_WOBBLE = 100;
     /** Song to play. */
     private static String musicFile = "/Jingle_Bells_full_Ab.mid";
 
@@ -49,12 +49,12 @@ public class HolidayCard {
         DrawPanel d = new DrawPanel();
 
         // Create randomly-positioned trees.
-        for (int i = 0; i < numTrees; i++) {
+        for (int i = 0; i < NUM_TREES; i++) {
             Rectangle treeBox = new Rectangle(
 		(int)(Math.random() * DrawPanel.WIDTH),
                 (int)(Math.random() * DrawPanel.HEIGHT),
-                treeWidth + (int)(Math.random() * treeWobble),
-                treeHeight + (int)(Math.random() * treeWobble));
+                TREE_WIDTH + (int)(Math.random() * TREE_WOBBLE),
+                TREE_HEIGHT + (int)(Math.random() * TREE_WOBBLE));
 
             Tree t = new Tree(d.getCanvas(), treeBox);
             d.addDrawObject(t);
@@ -64,7 +64,7 @@ public class HolidayCard {
 	MidiPlayer m = new MidiPlayer(musicFile);
 
         // Create the snowflakes.
-        for (int i = 0; i < numSnowFlakes; i++) {
+        for (int i = 0; i < NUM_SNOWFLAKES; i++) {
 	    switch (i % 6) {
 	    case 0:
 	    case 1:
