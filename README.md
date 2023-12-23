@@ -1,6 +1,8 @@
-# Java Holiday Card
+[![Java CI](https://github.com/dspinellis/holiday-card/actions/workflows/ant.yml/badge.svg)](https://github.com/dspinellis/holiday-card/actions/workflows/ant.yml)
 
-This is a simple Holiday card Java application written as an educational
+# Java holiday card
+
+This is a simple holiday card Java application written as an educational
 example to demonstrate the use of diverse Java features.
 
 * Inheritance and dynamic dispatch
