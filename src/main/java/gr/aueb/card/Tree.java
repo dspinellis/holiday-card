@@ -45,6 +45,8 @@ public class Tree extends Drawable {
     private final Color brown = new Color(204, 102, 0);
     /** Body's color (RGB) */
     private final Color green = new Color(0, 254, 0);
+    /** Tree balls' color (RGB) */
+    private final Color red = new Color(250, 0, 0);
 
     /** The tree's bounding rectangle */
     private Rectangle dimensions;
@@ -104,20 +106,58 @@ public class Tree extends Drawable {
      * @see gr.aueb.Tree the class description.
      */
     private void drawBody(Graphics g) {
-	/* Create the polygon (triangle) to draw */
-	Polygon p = new Polygon();
-	p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
-	p.addPoint(dimensions.x,
-		(int) (dimensions.y + dimensions.height * bodyHeightFactor));
-	p.addPoint(dimensions.x + dimensions.width,
-		(int) (dimensions.y + dimensions.height * bodyHeightFactor));
-	/* Draw the body */
-	g.drawPolygon(p);
+	    /* Create the polygon (triangle) to draw */
+	    Polygon p = new Polygon();
+	    p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
+	    p.addPoint(dimensions.x,
+		    (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+	    p.addPoint(dimensions.x + dimensions.width,
+		    (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+	    /* Draw the body */
+	    g.drawPolygon(p);
 
-	/* Fill it with green color */
-	Color c = g.getColor();
-	g.setColor(green);
-	g.fillPolygon(p);
-	g.setColor(c); // Revert paint color to default
+	    /* Fill it with green color */
+	    Color c = g.getColor();
+	    g.setColor(green);
+	    g.fillPolygon(p);
+	    g.setColor(c); // Revert paint color to default
+
+        /* Set Ornaments to the body. */
+        drawTreeOrnaments(g);
+    }
+
+    /**
+     * Draws the ornaments of the tree.
+     * @param g The Graphics object on which we will paint
+     * @param x The Abscissa of the part of the body to draw the ornament
+     * @param y The Ordinate of the part of the body to draw the ornament
+     */
+    private void addTreeOrnament(Graphics g, int x, int y) {
+        /* Draw Tree Ornament. */
+        g.drawOval(x, y, 10, 10);
+        /* Set color to Red. */
+        g.setColor(red);
+        /* Fill Tree Ornament with color. */
+        g.fillOval(x, y, 10, 10);
+    }
+
+    /**
+     * Calls addTreeOrnament for specific locations on
+     * the tree body.
+     * @param g The Graphics object on which we will paint
+     */
+    private void drawTreeOrnaments(Graphics g) {
+        /* yAxis of the body. */
+        int yAxis = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
+        /* Add ornament to down left. */
+        addTreeOrnament(g, dimensions.x -2, yAxis -2);
+        /* Add ornament to down right. */
+        addTreeOrnament(g, dimensions.x + dimensions.width -1, yAxis -1);
+        /* Add ornament to up left. */
+        addTreeOrnament(g, dimensions.x + dimensions.width / 2 -5 - 20, yAxis -25);
+        /* Add ornament to up right. */
+        addTreeOrnament(g, dimensions.x + dimensions.width / 2 -5 +20,  yAxis -25);
+        /* Add ornament to middle. */
+        addTreeOrnament(g,dimensions.x + dimensions.width / 2 -5, yAxis -65);
     }
 }
