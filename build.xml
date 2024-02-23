@@ -19,7 +19,9 @@
 
 <target name="compile" depends="init"
     description="compile the source, build library " >
-    <javac srcdir="${src}" destdir="${build}/classes" excludes="**/RCS/*,**/UmlGraph.java"
+    <javac srcdir="${src}" destdir="${build}/classes"
+     excludes="**/RCS/*,**/UmlGraph.java"
+     includeantruntime="false"
      debug="true" debuglevel="lines,vars,source" deprecation="on" >
         <compilerarg value="-Xlint"/>
     </javac>
