@@ -48,8 +48,8 @@ public class DrawPanel extends JFrame implements Runnable {
     /* A table that holds the objects to be drawn */
     private Vector<Drawable> drawObjects = null;
 
-    /* The drawing thread */
-    private Thread thread;
+    /* The drawing thread (not serializable) */
+    private transient Thread thread;
 
     /* The canvas to draw onto */
     private DrawablePanel drawablePanel = null;
