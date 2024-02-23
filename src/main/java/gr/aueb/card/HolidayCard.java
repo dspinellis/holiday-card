@@ -46,7 +46,7 @@ public class HolidayCard {
     public static void main(String[] args) {
 
         // Create a window and the canvas to draw onto.
-        DrawPanel d = new DrawPanel();
+        DrawPanel d = DrawPanel.getInstance();
 
         // Create randomly-positioned trees.
         for (int i = 0; i < NUM_TREES; i++) {

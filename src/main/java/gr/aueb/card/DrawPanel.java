@@ -60,15 +60,32 @@ public class DrawPanel extends JFrame implements Runnable {
     static final long serialVersionUID = 1L;
 
     /**
-     * Constructor to initialize and display the window and starts the
-     * animation.
-     *
+     * Constructor to initialize an object with the minimal required state.
+     * The constructor is private, as the full initialization is done
+     * in the getInstance method.
      */
-    public DrawPanel() {
+    private DrawPanel() {
         super("Holiday Card");
+    }
+
+    /**
+     * Field initialization based on a constructed instance
+     */
+    private void initialize() {
         drawObjects = new Vector<Drawable>();
         initializeGraphics();
         initializeThread();
+    }
+
+    /**
+     * Initialize, display the window, and start the animation.
+     * The code here is separate from the constructor in order to
+     * avoid the resulting "this escape".
+     */
+    public static DrawPanel getInstance() {
+        DrawPanel instance = new DrawPanel();
+        instance.initialize();
+        return instance;
     }
 
     /** Initialize the main window. */
