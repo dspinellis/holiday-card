@@ -56,7 +56,7 @@ public class DrawablePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        setBackground(DrawPanel.backgroundColor);
+        setBackground(DrawPanel.BACKGROUND_COLOR);
 
         // Ask our controller for a copy of items to draw
         Vector<Drawable> toPaint = controller.getDrawables();

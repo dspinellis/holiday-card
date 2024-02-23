@@ -36,17 +36,17 @@ import javax.swing.JPanel;
 public class Tree extends Drawable {
 
     /** Tree trunk width as % of the bounding rectangle width */
-    private final double trunkWidthFactor = 0.08;
+    private final double TRUNK_WIDTH_FACTOR = 0.08;
     /** Tree trunk height as % of the bounding rectangle height */
-    private final double trunkHeightFactor = 0.2;
+    private final double TRUNK_HEIGHT_FACTOR = 0.2;
     /** Tree body height as % of the bounding rectangle height */
-    private final double bodyHeightFactor = 0.8;
+    private final double BODY_HEIGHT_FACTOR = 0.8;
     /** Trunk's color (RGB) */
-    private final Color brown = new Color(204, 102, 0);
+    private final Color BROWN = new Color(204, 102, 0);
     /** Body's color (RGB) */
-    private final Color green = new Color(0, 254, 0);
+    private final Color GREEN = new Color(0, 254, 0);
     /** Tree balls' color (RGB) */
-    private final Color red = new Color(250, 0, 0);
+    private final Color RED = new Color(250, 0, 0);
 
     /** The tree's bounding rectangle */
     private Rectangle dimensions;
@@ -84,17 +84,17 @@ public class Tree extends Drawable {
 	Rectangle r = new Rectangle();
 
 	r.x = (int) (dimensions.x + (dimensions.width
-                    - dimensions.width * trunkWidthFactor) / 2);
-	r.y = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
-	r.width = (int) (dimensions.width * trunkWidthFactor);
-	r.height = (int) (dimensions.height * trunkHeightFactor);
+                    - dimensions.width * TRUNK_WIDTH_FACTOR) / 2);
+	r.y = (int) (dimensions.y + dimensions.height * BODY_HEIGHT_FACTOR);
+	r.width = (int) (dimensions.width * TRUNK_WIDTH_FACTOR);
+	r.height = (int) (dimensions.height * TRUNK_HEIGHT_FACTOR);
 
 	/* Draw it! */
 	g.drawRect(r.x, r.y, r.width, r.height);
 
 	/* Fill it with brown color */
 	Color c = g.getColor();
-	g.setColor(brown);
+	g.setColor(BROWN);
 	g.fillRect(r.x, r.y, r.width, r.height);
 	g.setColor(c); //Revert paint color to default
     }
@@ -110,15 +110,15 @@ public class Tree extends Drawable {
         Polygon p = new Polygon();
         p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
         p.addPoint(dimensions.x,
-                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+                (int) (dimensions.y + dimensions.height * BODY_HEIGHT_FACTOR));
         p.addPoint(dimensions.x + dimensions.width,
-                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+                (int) (dimensions.y + dimensions.height * BODY_HEIGHT_FACTOR));
         /* Draw the body */
         g.drawPolygon(p);
 
         /* Fill it with green color */
         Color c = g.getColor();
-        g.setColor(green);
+        g.setColor(GREEN);
         g.fillPolygon(p);
         g.setColor(c); // Revert paint color to default
 
@@ -136,7 +136,7 @@ public class Tree extends Drawable {
         /* Draw Tree Ornament. */
         g.drawOval(x, y, 10, 10);
         /* Set color to Red. */
-        g.setColor(red);
+        g.setColor(RED);
         /* Fill Tree Ornament with color. */
         g.fillOval(x, y, 10, 10);
     }
@@ -148,7 +148,7 @@ public class Tree extends Drawable {
      */
     private void drawTreeOrnaments(Graphics g) {
         /* yAxis of the body. */
-        int yAxis = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
+        int yAxis = (int) (dimensions.y + dimensions.height * BODY_HEIGHT_FACTOR);
         /* Add ornament to down left. */
         addTreeOrnament(g, dimensions.x - 2, yAxis - 2);
         /* Add ornament to down right. */

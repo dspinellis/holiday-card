@@ -31,7 +31,7 @@ import javax.swing.JPanel;
 public abstract class SnowFlake extends Drawable {
 
     /** The snowflake's background color. */
-    private static final Color white = new Color(255, 255, 255);
+    private static final Color WHITE = new Color(255, 255, 255);
 
     /**
      * The 'x' current coordinate of the snowflake.
@@ -71,7 +71,7 @@ public abstract class SnowFlake extends Drawable {
             coordY = 0;
 
         // Draw the character in white
-        g.setColor(white);
+        g.setColor(WHITE);
         g.drawString((Character.valueOf(displayChar)).toString(),
         coordX, coordY);
     }

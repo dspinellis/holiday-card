@@ -43,7 +43,7 @@ public class DrawPanel extends JFrame implements Runnable {
     public static final int HEIGHT = 768;
 
     /** The window's background color (blue). */
-    public static final Color backgroundColor = new Color(0, 153, 204);
+    public static final Color BACKGROUND_COLOR = new Color(0, 153, 204);
 
     /* A table that holds the objects to be drawn */
     private Vector<Drawable> drawObjects = null;
@@ -78,7 +78,7 @@ public class DrawPanel extends JFrame implements Runnable {
 
         // Create our drawing canvas
         drawablePanel = new DrawablePanel(this);
-        drawablePanel.setBackground(backgroundColor);
+        drawablePanel.setBackground(BACKGROUND_COLOR);
         drawablePanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setContentPane(drawablePanel);
 
