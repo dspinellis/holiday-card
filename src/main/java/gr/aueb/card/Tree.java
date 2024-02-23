@@ -106,21 +106,21 @@ public class Tree extends Drawable {
      * @see gr.aueb.Tree the class description.
      */
     private void drawBody(Graphics g) {
-	    /* Create the polygon (triangle) to draw */
-	    Polygon p = new Polygon();
-	    p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
-	    p.addPoint(dimensions.x,
-		    (int) (dimensions.y + dimensions.height * bodyHeightFactor));
-	    p.addPoint(dimensions.x + dimensions.width,
-		    (int) (dimensions.y + dimensions.height * bodyHeightFactor));
-	    /* Draw the body */
-	    g.drawPolygon(p);
+        /* Create the polygon (triangle) to draw */
+        Polygon p = new Polygon();
+        p.addPoint(dimensions.x + dimensions.width / 2, dimensions.y);
+        p.addPoint(dimensions.x,
+                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+        p.addPoint(dimensions.x + dimensions.width,
+                (int) (dimensions.y + dimensions.height * bodyHeightFactor));
+        /* Draw the body */
+        g.drawPolygon(p);
 
-	    /* Fill it with green color */
-	    Color c = g.getColor();
-	    g.setColor(green);
-	    g.fillPolygon(p);
-	    g.setColor(c); // Revert paint color to default
+        /* Fill it with green color */
+        Color c = g.getColor();
+        g.setColor(green);
+        g.fillPolygon(p);
+        g.setColor(c); // Revert paint color to default
 
         /* Set Ornaments to the body. */
         drawTreeOrnaments(g);
@@ -150,14 +150,14 @@ public class Tree extends Drawable {
         /* yAxis of the body. */
         int yAxis = (int) (dimensions.y + dimensions.height * bodyHeightFactor);
         /* Add ornament to down left. */
-        addTreeOrnament(g, dimensions.x -2, yAxis -2);
+        addTreeOrnament(g, dimensions.x - 2, yAxis - 2);
         /* Add ornament to down right. */
-        addTreeOrnament(g, dimensions.x + dimensions.width -1, yAxis -1);
+        addTreeOrnament(g, dimensions.x + dimensions.width - 1, yAxis - 1);
         /* Add ornament to up left. */
-        addTreeOrnament(g, dimensions.x + dimensions.width / 2 -5 - 20, yAxis -25);
+        addTreeOrnament(g, dimensions.x + dimensions.width / 2 - 5 - 20, yAxis - 25);
         /* Add ornament to up right. */
-        addTreeOrnament(g, dimensions.x + dimensions.width / 2 -5 +20,  yAxis -25);
+        addTreeOrnament(g, dimensions.x + dimensions.width / 2 - 5 + 20,  yAxis - 25);
         /* Add ornament to middle. */
-        addTreeOrnament(g,dimensions.x + dimensions.width / 2 -5, yAxis -65);
+        addTreeOrnament(g,dimensions.x + dimensions.width / 2 - 5, yAxis - 65);
     }
 }
